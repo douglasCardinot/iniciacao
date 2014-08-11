@@ -17,3 +17,11 @@ for j=1:numberOfSteps
 end
 
 plot(pos, width);
+
+clear
+clc
+
+function mat_img = nome_func(dir_img)
+    //escreve codigo
+    mat_img = 1;
+endfunction

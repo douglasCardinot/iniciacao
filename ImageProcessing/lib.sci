@@ -26,3 +26,10 @@ function heights = getHeights(logicalImage)
     
     heights = alturas;
 endfunction
+
+
+function standardDeviation = getStandardDeviation(foto)
+    logicalImage = toLogicalImage(foto);
+    heights = getHeights(logicalImage);
+    standardDeviation = stdev(heights);
+endfunction

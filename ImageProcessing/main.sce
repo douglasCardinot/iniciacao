@@ -1,10 +1,18 @@
 clear;
-path = "C:/xampp2/htdocs/iniciacao/ImageProcessing/";
+path = "C:/xampp/htdocs/iniciacao/ImageProcessing/";
 
 exec(path+"lib.sci");
 
-foto = "crescimento.jpg";
+foto = "crescimento-tratado.jpg";
 logicalImage = toLogicalImage(foto);
 
 figure();
 ShowImage(logicalImage, 'invertida');
+
+alturas = getHeights(logicalImage);
+cols = size(logicalImage, 'c');
+pos = 1:1:cols;
+
+plot(pos, alturas);
+
+disp(getStandardDeviation(foto));

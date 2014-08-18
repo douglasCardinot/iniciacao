@@ -1,6 +1,5 @@
 clear;
 path = "C:/xampp2/htdocs/iniciacao/ImageProcessing/";
-
 exec(path+"lib.sci");
 
 foto = "teste.jpg";
@@ -15,4 +14,4 @@ pos = 1:1:cols;
 
 plot(pos, alturas);
 
-disp(getStandardDeviation(foto));
+disp(getWidth(foto));

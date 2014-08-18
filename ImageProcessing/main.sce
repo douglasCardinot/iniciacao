@@ -15,4 +15,4 @@ pos = 1:1:cols;
 
 plot(pos, alturas);
 
-disp(getWidth(foto));
+disp(stdev(alturas));

@@ -1,8 +1,9 @@
 clear;
 path = "C:/xampp2/htdocs/iniciacao/ImageProcessing/";
+
 exec(path+"lib.sci");
 
-foto = "teste.jpg";
+foto = "crescimento-tratado.jpg";
 logicalImage = toLogicalImage(foto);
 
 figure();

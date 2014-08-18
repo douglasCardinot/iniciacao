@@ -63,8 +63,8 @@ function heights = getHeights(logicalImage)
 endfunction
 
 
-function standardDeviation = getStandardDeviation(foto)
+function width = getWidth(foto)
     logicalImage = toLogicalImage(foto);
     heights = getHeights(logicalImage);
-    standardDeviation = stdev(heights);
+    width = stdev(heights);
 endfunction

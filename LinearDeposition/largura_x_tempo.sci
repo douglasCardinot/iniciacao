@@ -47,5 +47,10 @@ end
 scf();
 plot(pos, width, '*');
 
+scf();
+plot(pos, width);
+a = gca();
+a.log_flags = 'lln';
+
 clear;
 clearglobal;

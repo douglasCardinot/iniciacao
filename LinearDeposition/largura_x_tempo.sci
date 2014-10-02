@@ -1,16 +1,22 @@
 clear;
+clearglobal;
+stacksize('max');
+scf();
 
-numberOfSteps = 4*100000;
-size_ = 200;
-blocksForTime = 200;
+numberOfSteps = 1000;
+size_ = 100;
+blocksForTime = size_;
 y = zeros(1,size_);
-width = zeros(1, int(numberOfSteps/blocksForTime));
-pos = 1:1:int(numberOfSteps/blocksForTime);
+width = zeros(1, int(numberOfSteps));
+pos = 1:1:int(numberOfSteps);
+posSize = 1:1:int(size_);
+randonNumbers = rand(numberOfSteps, blocksForTime);
 
 for j=1:numberOfSteps
 
     for i=1:blocksForTime
-        d = int(rand()*size_ + 1);
+        
+        d = ceil(randonNumbers(j, i)*size_);
         ant = d-1;
         dep = d+1;
         if d == 1 then
@@ -30,13 +36,16 @@ for j=1:numberOfSteps
         
     end
     
-    if modulo(j, blocksForTime) == 0 then
-        width(int(j/blocksForTime)) = stdev(y);
-    end
+    width(j) = stdev(y);
     
+    if modulo(j, 100) == 0 then
+       plot(posSize, y, 'color', rand(1,3));
+    end
 
 end
 
-plot(pos, width);
+scf();
+plot(pos, width, '*');
 
-clear
+clear;
+clearglobal;

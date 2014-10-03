@@ -1,7 +1,7 @@
 clear
 scf();
 
-numberOfSteps = 100;
+numberOfSteps = 1000;
 size_ = 200;
 blocksForTime = size_;
 y = zeros(1,size_);
@@ -32,5 +32,3 @@ scf();
 plot(pos, width);
 a = gca();
 a.log_flags = 'lln';
-
-clear

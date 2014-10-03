@@ -3,8 +3,8 @@ clearglobal;
 stacksize('max');
 scf();
 
-numberOfSteps = 10000;
-size_ = 100;
+numberOfSteps = 175;
+size_ = 200;
 blocksForTime = size_;
 y = zeros(1,size_);
 width = zeros(1, int(numberOfSteps));
@@ -24,11 +24,11 @@ for j=1:numberOfSteps
         elseif d == size_ then
             dep = 1;
         end
-        if y(ant) < y(d) | y(dep) < y(d) then
-            if(y(ant) < y(dep))
-                y(int(ant)) = y(int(ant)) + 1;
+        if y(ant) > y(d) | y(dep) > y(d) then
+            if(y(ant) > y(dep))
+                y(int(d)) = y(int(ant));
             else
-                y(int(dep)) = y(int(dep)) + 1;
+                y(int(d)) = y(int(dep));
             end
         else
             y(int(d)) = y(int(d)) + 1;
@@ -38,7 +38,7 @@ for j=1:numberOfSteps
     
     width(j) = stdev(y);
     
-    if modulo(j, 100) == 0 then
+    if modulo(j, 13) == 0 then
        plot(posSize, y, 'color', rand(1,3));
     end
 

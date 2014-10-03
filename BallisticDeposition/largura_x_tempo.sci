@@ -1,5 +1,4 @@
 clear;
-clearglobal;
 stacksize('max');
 scf();
 

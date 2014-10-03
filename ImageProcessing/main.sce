@@ -1,5 +1,5 @@
 clear;
-path = "C:/xampp/htdocs/iniciacao/ImageProcessing/";
+path = "C:/xampp2/htdocs/iniciacao/ImageProcessing/";
 
 exec(path+"lib.sci");
 

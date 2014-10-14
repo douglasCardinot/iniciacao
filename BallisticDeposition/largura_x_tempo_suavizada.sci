@@ -4,9 +4,11 @@ stacksize('max');
 scf();
 
 numberOfSteps = 10000;
-previsaoTx = 25;
+previsaoTx = 5;
 amplitude = 500;
-size_ = 200;
+size_ = 500;
+
+
 blocksForTime = size_;
 y = zeros(1,size_);
 width = zeros(1, int(numberOfSteps));
@@ -43,14 +45,14 @@ for j=1:numberOfSteps
     
     width(j) = stdev(y);
     
-    if modulo(j, 13) == 0 then
+    if modulo(j, amplitude) == 0 then
        plot(posSize, y, 'color', rand(1,3));
     end
 
 end
 
-scf();
-plot(pos, width);
+//scf();
+//plot(pos, width);
 
 for i=0:qtdMedias
     soma = 0;
@@ -61,10 +63,10 @@ for i=0:qtdMedias
         medias(previsaoTx+(amplitude*i) + amplitude/2) = soma/amplitude;
     end
 end
-plot(pos, medias, '*');
+//plot(pos, medias, '*');
 
 scf();
-plot(pos, width);
+plot(pos, width, 'color', rand(1,3));
 a = gca();
 a.log_flags = 'lln';
 plot(pos, medias, '*');

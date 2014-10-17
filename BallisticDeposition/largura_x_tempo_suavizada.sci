@@ -4,9 +4,9 @@ stacksize('max');
 scf();
 
 numberOfSteps = 10000;
-previsaoTx = 5;
-amplitude = 500;
-size_ = 500;
+previsaoTx = 100;
+amplitude = 800;
+size_ = 200;
 
 
 blocksForTime = size_;
@@ -53,6 +53,7 @@ end
 
 //scf();
 //plot(pos, width);
+somaMedias = 0;
 
 for i=0:qtdMedias
     soma = 0;
@@ -61,14 +62,21 @@ for i=0:qtdMedias
             soma = soma + width(j);
         end
         medias(previsaoTx+(amplitude*i) + amplitude/2) = soma/amplitude;
+        somaMedias = somaMedias + soma/amplitude;
     end
 end
 //plot(pos, medias, '*');
 
 scf();
 plot(pos, width, 'color', rand(1,3));
+
+alturaMedia = somaMedias/qtdMedias;
+plot([1 numberOfSteps], [alturaMedia alturaMedia]);
+
 a = gca();
 a.log_flags = 'lln';
 plot(pos, medias, '*');
 a = gca();
 a.log_flags = 'lln';
+
+
